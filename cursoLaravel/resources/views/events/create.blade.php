@@ -4,11 +4,19 @@
 
 <div id="event-create-container" class="col-md-6 offset-md-3">
     <h1>Crie o seu evento</h1>
-    <form action="/events" method="POST">
+    <form action="/events" method="POST" enctype="multipart/form-data">
         @csrf
+        <div class="form-group">
+            <label for="title">Imagem do Evento:</label>
+            <input type="file" id="image" name="image" class="form-control-file">
+        </div>
         <div class="form-group">
             <label for="title">Evento:</label>
             <input type="text" class="form-control" id="title" name="title" placeholder="Nome do evento">
+        </div>
+        <div class="form-group">
+            <label for="date">Data do evento:</label>
+            <input type="date" class="form-control" id="date" name="date">
         </div>
         <div class="form-group">
             <label for="title">Cidade:</label>
@@ -23,11 +31,23 @@
         </div>
         <div class="form-group">
             <label for="title">Descrição:</label>
-            <textarea name="description" id="description" class="form-control" placeholder="O que vai acontecer no evneto"></textarea>
-        
+            <textarea name="description" id="description" class="form-control" placeholder="O que vai acontecer no evneto"></textarea>        </div>
+        <div class="form-group">
+            <label for="title">Adicione itens de infraestutura:</label>
+            <div class="from-group">
+                <input type="checkbox" name="items[]" value="Cadeiras"> Cadeiras
+            </div>
+            <div class="from-group">
+                <input type="checkbox" name="items[]" value="Palco"> Palco
+            </div>
+            <div class="from-group">
+                <input type="checkbox" name="items[]" value="Cerveja"> Cerveja
+            </div>
+            <div class="from-group">
+                <input type="checkbox" name="items[]" value="Open Food"> Open Food
+            </div>
             <input type="submit" class="btn btn-primary" value="Criar Evento">
         </div>
-        
     </form>
 </div>
 @endsection
